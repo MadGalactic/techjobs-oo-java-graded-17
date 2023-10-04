@@ -95,4 +95,25 @@ public class Job {
     public int hashCode() {
         return Objects.hash(id, name, employer, location, positionType, coreCompetency);
     }
+
+    // TODO: Build .toString() method
+    @Override
+    public String toString(){
+        StringBuilder result = new StringBuilder();
+        // Check if only the ID field has data
+        if (name == null && employer == null && location == null &&
+                positionType == null && coreCompetency == null) {
+            return "OOPS! This job does not seem to exist.";
+        }
+
+        result.append("\n");
+        result.append("ID: ").append(id == 0 ? "Data not available" : id).append("\n");
+        result.append("Name: ").append(name == null || name.isEmpty() ? "Data not available" : name).append("\n");
+        result.append("Employer: ").append(employer == null || employer.getValue().isEmpty() ? "Data not available" : employer).append("\n");
+        result.append("Location: ").append(location == null || location.getValue().isEmpty() ? "Data not available" : location).append("\n");
+        result.append("Position Type: ").append(positionType == null || positionType.getValue().isEmpty() ? "Data not available" : positionType).append("\n");
+        result.append("Core Competency: ").append(coreCompetency == null || coreCompetency.getValue().isEmpty() ? "Data not available" : coreCompetency).append("\n");
+        return result.toString();
+    }
+
 }
