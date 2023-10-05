@@ -42,7 +42,7 @@ public class JobTest {
     public void testToStringStartsAndEndsWithNewLine(){
         String msg = "When passed a Job object, it should return a string that contains a new line before and after the job information.";
         Job testJob1 = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
-        String expected = "\nID: 1\nName: Product Tester\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality Control\nCore Competency: Persistence\n";
+        String expected = "\nID: " + testJob1.getId() + "\nName: Product Tester\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality Control\nCore Competency: Persistence\n";
         String actual = testJob1.toString();
         assertEquals(expected, actual, msg);
     }
@@ -51,7 +51,7 @@ public class JobTest {
     public void testToStringContainsCorrectLabelsAndData(){
         String msg = "The string for the job object should contain a label for each field, followed by the data stored in that field. Each field should be on its own line";
         Job testJob1 = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
-        String expected = "\nID: 1\nName: Product Tester\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality Control\nCore Competency: Persistence\n";
+        String expected = "\nID: " + testJob1.getId() + "\nName: Product Tester\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality Control\nCore Competency: Persistence\n";
         String actual = testJob1.toString();
         assertEquals(expected, actual, msg);
     }
@@ -60,7 +60,7 @@ public class JobTest {
     public void testToStringHandlesEmptyField(){
         String msg = "The method should return Data not available after the label if a field is empty.";
         Job testJob1 = new Job("", new Employer(""), new Location(""), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
-        String expected="\nID: 1\nName: Data not available\nEmployer: Data not available\nLocation: Data not available\nPosition Type: Quality Control\nCore Competency: Persistence\n";
+        String expected=  "\nID: " + testJob1.getId() + "\nName: Data not available\nEmployer: Data not available\nLocation: Data not available\nPosition Type: Quality Control\nCore Competency: Persistence\n";
         String actual = testJob1.toString();
         assertEquals(expected, actual, msg);
     }
